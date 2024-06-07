@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="DETAILINDPRODUCTION.CSS">
+    <title>SMURFIT</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 10px 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        li {
+            margin: 0 15px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            position: relative;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Style au survol du lien */
+        a:hover {
+            background-color: #333;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50; /* Vert */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Style au survol du bouton */
+        button:hover {
+            background-color: #45a049; /* Nuance de vert plus foncé au survol */
+        }
+
+        section.hero {
+            display: flex;
+            align-items: flex-start;
+            padding: 20px;
+            margin-top: -10px;
+            overflow: hidden;
+        }
+
+        .image-container {
+            max-width: 50%;
+            overflow-y: auto;
+            overflow-x: hidden;
+            margin-right: 20px;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            resize: block;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: auto;
+        }
+    </style>
+</head>
+</style>
+</head>
+
+</style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">SMURFIT - CDG - détails des indicateurs</div>
+
+
+            <ul>
+                <button onclick="enregistrerTexte()">Enregistrer</button>
+                <li><a href="CDG.HTML">Retour</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Première paire image/texte -->
+    <section class="hero">
+        <div class="image-container">
+            <img src="..\TDB SMURFIT\IMAGES\CIND12.png" alt="Description de l'image">
+        </div>
+        <textarea class="textArea" placeholder="Écrivez ici pour expliquer l'indicateur..."></textarea>
+    </section>
+
+    <!-- Deuxième paire image/texte -->
+    <section class="hero">
+        <div class="image-container">
+            <img src="..\TDB SMURFIT\IMAGES\CIND13.png" alt="Description de l'image">
+        </div>
+        <textarea class="textArea" placeholder="Écrivez ici pour expliquer l'indicateur..."></textarea>
+    </section>
+
+    <!-- Troisième paire image/texte -->
+    <section class="hero">
+        <div class="image-container">
+            <img src="..\TDB SMURFIT\IMAGES\CIND14.png" alt="Description de l'image">
+        </div>
+        <textarea class="textArea" placeholder="Écrivez ici pour expliquer l'indicateur..."></textarea>
+    </section>
+
+    <!-- Quatrième paire image/texte -->
+    <section class="hero">
+        <div class="image-container">
+            <img src="..\TDB SMURFIT\IMAGES\CIND15.png" alt="Description de l'image">
+        </div>
+        <textarea class="textArea" placeholder="Écrivez ici pour expliquer l'indicateur..."></textarea>
+    </section>
+<!-- 5 paire image/texte -->
+<section class="hero">
+    <div class="image-container">
+        <img src="..\TDB SMURFIT\IMAGES\CIND16.png" alt="Description de l'image">
+    </div>
+    <textarea class="textArea" placeholder="Écrivez ici pour expliquer l'indicateur..."></textarea>
+</section>
+<!-- 6 paire image/texte -->
+<section class="hero">
+    <div class="image-container">
+        <img src="..\TDB SMURFIT\IMAGES\CIND20.png" alt="Description de l'image">
+    </div>
+    <textarea class="textArea" placeholder="Écrivez ici pour expliquer l'indicateur..."></textarea>
+</section>
+
+<!-- 7 paire image/texte -->
+<section class="hero">
+    <div class="image-container">
+        <img src="..\TDB SMURFIT\IMAGES\CIND21.png" alt="Description de l'image">
+    </div>
+    <textarea class="textArea" placeholder="Écrivez ici pour expliquer l'indicateur..."></textarea>
+</section>
+
+<!-- 8 paire image/texte -->
+<section class="hero">
+    <div class="image-container">
+        <img src="..\TDB SMURFIT\IMAGES\CIND22.png" alt="Description de l'image">
+    </div>
+    <textarea class="textArea" placeholder="Écrivez ici pour expliquer l'indicateur..."></textarea>
+</section>
+    <footer>
+     
+
+        <!-- Liste déroulante pour les options -->
+        <div class="options-dropdown">
+            <select onchange="handleOptionChange(this)">
+                <option value="none" selected disabled hidden>Options</option>
+                <option value="export">Exporter les données</option>
+                <option value="import">Importer des données</option>
+            </select>
+        </div>
+
+        <!-- Boutons d'export/import dans la liste déroulante -->
+        <div class="export-import" style="display: none;">
+            <button class="export-bouton" onclick="exporterDonneesCDG()">Exporter les données CDG</button>
+            <label for="importInputCDG" class="import-label" onclick="document.getElementById('importInputCDG').click()">Importer des données CDG</label>
+            <input type="file" accept=".json" id="importInputCDG" onchange="importerDonneesCDG()" class="import-input">
+        </div>
+    </footer>
+
+    <script>
+        // Fonction pour enregistrer le texte localement
+        function enregistrerTexte() {
+            var textAreas = document.querySelectorAll('.textArea');
+            var currentPageURL = window.location.href; // Obtient l'URL de la page actuelle
+            textAreas.forEach(function (textArea, index) {
+                localStorage.setItem(currentPageURL + '_texteSaisi' + (index + 1), textArea.value);
+            });
+            alert('Textes enregistrés avec succès !');
+        }
+
+        // Fonction pour charger le texte lors du chargement de la page
+        window.onload = function () {
+            var textAreas = document.querySelectorAll('.textArea');
+            var currentPageURL = window.location.href; // Obtient l'URL de la page actuelle
+            textAreas.forEach(function (textArea, index) {
+                var texteEnregistre = localStorage.getItem(currentPageURL + '_texteSaisi' + (index + 1));
+                if (texteEnregistre) {
+                    textArea.value = texteEnregistre;
+                }
+            });
+        };
+
+        // Fonction pour gérer le changement d'option
+        function handleOptionChange(select) {
+            var selectedOption = select.value;
+            var exportImportDiv = document.querySelector('.export-import');
+
+            if (selectedOption === 'export') {
+                exporterDonneesCDG();
+                // Réinitialiser la liste déroulante après l'action
+                select.value = 'none';
+            } else if (selectedOption === 'import') {
+                // Cela déclenche l'événement click sur le bouton d'importation caché
+                document.getElementById('importInputCDG').click();
+                // Réinitialiser la liste déroulante après l'importation
+                select.value = 'none';
+            } else {
+                exportImportDiv.style.display = 'none';
+            }
+        }
+
+        // Fonction pour exporter les données CDG localement
+        function exporterDonneesCDG() {
+            var donneesCDG = {
+                texteAEnregistrerCDG1: document.querySelectorAll('.textArea')[0].value,
+                texteAEnregistrerCDG2: document.querySelectorAll('.textArea')[1].value,
+                texteAEnregistrerCDG3: document.querySelectorAll('.textArea')[2].value,
+                texteAEnregistrerCDG4: document.querySelectorAll('.textArea')[3].value
+            };
+
+            var jsonDataCDG = JSON.stringify(donneesCDG);
+
+            var blobCDG = new Blob([jsonDataCDG], { type: 'application/json' });
+            var aCDG = document.createElement('a');
+            aCDG.href = URL.createObjectURL(blobCDG);
+            aCDG.download = 'Donnees_CDG.json';
+            aCDG.click();
+        }
+
+        // Fonction pour importer les données CDG localement
+        function importerDonneesCDG() {
+            var inputCDG = document.getElementById('importInputCDG');
+            var fileCDG = inputCDG.files[0];
+
+            if (fileCDG) {
+                var readerCDG = new FileReader();
+                readerCDG.onload = function (e) {
+                    var jsonDataCDG = e.target.result;
+                    var donneesCDG = JSON.parse(jsonDataCDG);
+
+                    document.querySelectorAll('.textArea').forEach(function (textArea, index) {
+                        textArea.value = donneesCDG['texteAEnregistrerCDG' + (index + 1)] || '';
+                    });
+
+                    alert('Données CDG importées avec succès !');
+                };
+
+                readerCDG.readAsText(fileCDG);
+            }
+        }
+    </script>
+</body>
+
+</html>

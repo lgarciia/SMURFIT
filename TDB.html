@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="NIKE.CSS">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        header {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 10px 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+        }
+
+        li {
+            margin: 0 15px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            position: relative;
+        }
+
+        /* Ajout des styles pour les listes déroulantes */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #1a1a1a;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            color: #fff;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 8px;
+            color: #fff;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #555;
+        }
+
+        /* Fin des styles pour les listes déroulantes */
+
+        .hero {
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #f00;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Ajout d'une classe pour la grille d'images */
+        .image-grid {
+            display: flex;
+            justify-content: space-around;
+            margin: 120px 0;
+        }
+
+        .image-grid img {
+            width: 25%; /* Chaque image occupe 25% de la largeur */
+            max-width: 100%; /* Assurez-vous qu'elles ne dépassent pas leur taille naturelle */
+            height: auto; /* Maintient le ratio hauteur-largeur */
+            margin-right: 5px; /* Espacement entre les images */
+        }
+    </style>
+    <title>SMURFIT</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">SMURFIT</div>
+            <ul>
+                <li class="dropdown">
+                    <div class="dropdown-trigger">
+                    <a href="PRESENTATION.html">Présentation</a>
+                </div>
+                <div class="dropdown-content">
+                    <a href="NOTEDECADRAGE.html">Note de Cadrage</a>
+                
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+                <li class="dropdown">
+                    <div class="dropdown-trigger">
+                    <a href="#">Production</a>
+                </div>
+                    <div class="dropdown-content">
+                        <a href="PROD.HTML">Tableau de bord</a>
+                        <a href="DETAILINDPRODUCTION.HTML">Explication</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <div class="dropdown-trigger">
+                    <a href="#">Ressources Humaines</a>
+                </div>
+                    <div class="dropdown-content">
+                        <a href="RH.HTML">Tableau de bord</a>
+                        <a href="DETAILINDRH.HTML">Explication</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <div class="dropdown-trigger">
+                    <a href="#">Commercial</a>
+                </div>
+                    <div class="dropdown-content">
+                        <a href="COMMERCE.HTML">Tableau de bord</a>
+                        <a href="DETAILINDCOM.HTML">Explication</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <div class="dropdown-trigger">
+                    <a href="#">  Financier  </a>
+                </div>
+                    <div class="dropdown-content">
+                        <a href="CDG.HTML">Tableau de bord</a>
+                        <a href="DETAILINDCDG.HTML">Explication</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Ajout de la grille d'images -->
+    <div class="image-grid">
+        <img src="..\TDB SMURFIT\IMAGES\IM1.jpg">
+        <img src="..\TDB SMURFIT\IMAGES\Cabinet-Recrutement-RH-Taille_min.jpg" alt="Image 2">
+        <img src="..\TDB SMURFIT\IMAGES\commerce-international-dessine-main_23-2149149325.avif" alt="Image 3">
+        <img src="..\TDB SMURFIT\IMAGES\ReportProd.png" alt="Image 4">
+    </div>
+
+    <footer>
+        <p>&copy; 2024 SMURFIT - Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

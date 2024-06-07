@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="PROD.CSS">
+    <title>SMURFIT</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 10px 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+        }
+
+        li {
+            margin: 0 15px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            position: relative;
+        }
+
+        section.hero {
+            text-align: center;
+            padding: 20px;
+            margin-top: -50px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        textarea {
+            width: 80%;
+            padding: 10px;
+            box-sizing: border-box;
+            resize: none;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .image-container {
+            max-width: 100%;
+            max-height: 650px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Nouveau style pour le bouton */
+        button.nouveau-bouton {
+            padding: 10px;
+            background-color: #2196F3; /* Bleu */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Style au survol du bouton */
+        button.nouveau-bouton:hover {
+            background-color: #0b7dda; /* Nuance de bleu plus foncé au survol */
+        }
+
+        /* Style pour la liste déroulante */
+        .options-dropdown select {
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .options-dropdown select:hover {
+            background-color: #f0f0f0; /* Couleur au survol */
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">SMURFIT - Production</div>
+
+            <ul>
+                <!-- Nouveau bouton à gauche -->
+                <li><button class="nouveau-bouton" onclick="enregistrerTexte()">Enregistrer</button></li>
+                <li><a href="DETAILINDPRODUCTION.HTML">Détail des indicateurs</a></li>
+                <li><a href="TDB.html">Retour</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2></h2>
+        <textarea id="texteAEnregistrer" placeholder="Écrivez ici..."></textarea>
+        <div class="image-container">
+            <img src="..\TDB SMURFIT\IMAGES\TDBPRODUCTIONG.png" alt="Description de l'image">
+        </div>
+    </section>
+
+    <footer>
+       
+
+        <!-- Conteneur pour centrer les éléments au-dessus de l'autre -->
+        <div class="options-dropdown-container">
+            <!-- Liste déroulante pour les options -->
+            <div class="options-dropdown">
+                <select onchange="handleOptionChange(this)">
+                    <option value="none" selected disabled hidden>Options</option>
+                    <option value="export">Exporter les données</option>
+                    <option value="import">Importer des données</option>
+                </select>
+            </div>
+
+            <!-- Boutons d'export/import dans la liste déroulante -->
+            <div class="export-import" style="display: none;">
+                <button class="export-bouton" onclick="exporterDonnees()">Exporter les données</button>
+                <input type="file" accept=".json" id="importInput" onchange="importerDonnees()" class="import-input">
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Fonction pour enregistrer le texte localement
+        function enregistrerTexte() {
+            var texteAEnregistrer = document.getElementById('texteAEnregistrer').value;
+            localStorage.setItem('texteEnregistre', texteAEnregistrer);
+            alert('Texte enregistré avec succès !');
+        }
+
+        // Charger le texte lors du chargement de la page
+        window.onload = function () {
+            var texteEnregistre = localStorage.getItem('texteEnregistre');
+            if (texteEnregistre) {
+                document.getElementById('texteAEnregistrer').value = texteEnregistre;
+            }
+        };
+
+        // Fonction pour gérer le changement d'option
+        function handleOptionChange(select) {
+            var selectedOption = select.value;
+            var exportImportDiv = document.querySelector('.export-import');
+
+            if (selectedOption === 'export') {
+                exporterDonnees();
+                // Réinitialiser la liste déroulante après l'action
+                select.value = 'none';
+            } else if (selectedOption === 'import') {
+                // Cela déclenche l'événement click sur le bouton d'importation caché
+                document.getElementById('importInput').click();
+                // Réinitialiser la liste déroulante après l'importation
+                select.value = 'none';
+            } else {
+                exportImportDiv.style.display = 'none';
+            }
+        }
+
+        // Fonction pour exporter toutes les données localement
+        function exporterDonnees() {
+            var donnees = {};
+            donnees.texteAEnregistrer = document.getElementById('texteAEnregistrer').value;
+
+            var jsonData = JSON.stringify(donnees);
+
+            var blob = new Blob([jsonData], { type: 'application/json' });
+            var a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'DONNEES PRODUCTION.json'; 
+            a.click();
+        }
+
+        // Fonction pour importer toutes les données localement
+        function importerDonnees() {
+            var inputProduction = document.getElementById('importInput');
+            var fileProduction = inputProduction.files[0];
+
+            if (fileProduction) {
+                var readerProduction = new FileReader();
+                readerProduction.onload = function (e) {
+                    var jsonDataProduction = e.target.result;
+                    var donneesProduction = JSON.parse(jsonDataProduction);
+
+                    document.getElementById('texteAEnregistrer').value = donneesProduction.texteAEnregistrer || '';
+
+                    alert('Données Production importées avec succès !');
+
+                    // Mettre à jour la liste déroulante après l'importation
+                    document.querySelector('.options-dropdown select').value = 'none';
+                };
+
+                readerProduction.readAsText(fileProduction);
+            }
+        }
+    </script>
+</body>
+
+
+
+
+</html>

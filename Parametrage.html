@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paramétrage des Profils</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #007bff;
+        }
+        .profile-settings {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .profile-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .profile {
+            margin-bottom: 20px;
+        }
+        .profile label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .profile-checkbox {
+            margin-bottom: 10px;
+        }
+        .page-checkbox {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .page-checkbox input[type="checkbox"] {
+            margin-left: 100px;
+        }
+        .save-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+        }
+        .save-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Paramétrage des Profils</h1>
+
+
+
+
+
+    <div class="profile-settings">
+        <h2 class="profile-title">Administrateur:</h2>
+            <div class="profile-checkbox">
+                <div class="page-checkbox">
+                    <label for="admin_presentation">Présentation</label>
+                    <input type="checkbox" id="admin_presentation" value="TDB.html">
+                </div>
+                <div class="page-checkbox">
+                    <label for="admin_note_de_cadrage">Note de cadrage</label>
+                    <input type="checkbox" id="admin_note_de_cadrage" value="note_de_cadrage.html">
+                </div>
+                <div class="page-checkbox">
+                    <label for="admin_tb_production">Tableau de bord Production</label>
+                    <input type="checkbox" id="admin_tb_production" value="tb_production.html">
+                </div>
+                <div class="page-checkbox">
+                    <label for="admin_expl_production">Explication Production</label>
+                    <input type="checkbox" id="admin_expl_production" value="expl_production.html">
+                </div>
+                <div class="page-checkbox">
+                    <label for="admin_tb_rh">Tableau de bord Ressources Humaines</label>
+                    <input type="checkbox" id="admin_tb_rh" value="tb_rh.html">
+                </div>
+                <div class="page-checkbox">
+                    <label for="admin_expl_rh">Explication Ressources Humaines</label>
+                    <input type="checkbox" id="admin_expl_rh" value="expl_rh.html">
+                </div>
+                <div class="page-checkbox">
+                    <label for="admin_tb_commercial">Tableau de bord Commercial</label>
+                    <input type="checkbox" id="admin_tb_commercial" value="tb_commercial.html">
+                </div>
+                <div class="page-checkbox">
+                    <label for="admin_expl_commercial">Explication Commercial</label>
+                    <input type="checkbox" id="admin_expl_commercial" value="expl_commercial.html">
+                </div>
+                <div class="page-checkbox">
+                    <label for="admin_tb_financier">Tableau de bord Financier</label>
+                    <input type="checkbox" id="admin_tb_financier" value="tb_financier.html">
+                </div>
+                <div class="page-checkbox">
+                    <label for="admin_expl_financier">Explication Financier</label>
+                    <input type="checkbox" id="admin_expl_financier" value="expl_financier.html">
+                </div>
+                <!-- Ajoutez d'autres pages ici -->
+            </div>
+        </div>
+        <br>
+        <div class="profile-settings">
+            <h2 class="profile-title">Financier:</h2>
+                <div class="profile-checkbox">
+                    <div class="page-checkbox">
+                        <label for="admin_presentation">Présentation</label>
+                        <input type="checkbox" id="admin_presentation" value="presentation.html">
+                    </div>
+                    <div class="page-checkbox">
+                        <label for="admin_note_de_cadrage">Note de cadrage</label>
+                        <input type="checkbox" id="admin_note_de_cadrage" value="note_de_cadrage.html">
+                    </div>
+                    <div class="page-checkbox">
+                        <label for="admin_tb_production">Tableau de bord Production</label>
+                        <input type="checkbox" id="admin_tb_production" value="tb_production.html">
+                    </div>
+                    <div class="page-checkbox">
+                        <label for="admin_expl_production">Explication Production</label>
+                        <input type="checkbox" id="admin_expl_production" value="expl_production.html">
+                    </div>
+                    <div class="page-checkbox">
+                        <label for="admin_tb_rh">Tableau de bord Ressources Humaines</label>
+                        <input type="checkbox" id="admin_tb_rh" value="tb_rh.html">
+                    </div>
+                    <div class="page-checkbox">
+                        <label for="admin_expl_rh">Explication Ressources Humaines</label>
+                        <input type="checkbox" id="admin_expl_rh" value="expl_rh.html">
+                    </div>
+                    <div class="page-checkbox">
+                        <label for="admin_tb_commercial">Tableau de bord Commercial</label>
+                        <input type="checkbox" id="admin_tb_commercial" value="tb_commercial.html">
+                    </div>
+                    <div class="page-checkbox">
+                        <label for="admin_expl_commercial">Explication Commercial</label>
+                        <input type="checkbox" id="admin_expl_commercial" value="expl_commercial.html">
+                    </div>
+                    <div class="page-checkbox">
+                        <label for="admin_tb_financier">Tableau de bord Financier</label>
+                        <input type="checkbox" id="admin_tb_financier" value="tb_financier.html">
+                    </div>
+                    <div class="page-checkbox">
+                        <label for="admin_expl_financier">Explication Financier</label>
+                        <input type="checkbox" id="admin_expl_financier" value="expl_financier.html">
+                    </div>
+                    <!-- Ajoutez d'autres pages ici -->
+
+
+
+
+
+
+        <!-- Ajoutez d'autres profils ici si nécessaire -->
+    </div>
+
+    <button class="save-button" onclick="saveSettings()">Enregistrer</button>
+
+    <script>
+        // Fonction pour sauvegarder les paramètres dans le localStorage
+        function saveSettings() {
+            let profiles = document.querySelectorAll('.profile-checkbox');
+            let settings = {};
+
+            profiles.forEach(function(profile) {
+                let profileName = profile.parentElement.querySelector('label').getAttribute('for');
+                settings[profileName] = [];
+
+                let checkboxes = profile.querySelectorAll('input[type="checkbox"]:checked');
+                checkboxes.forEach(function(checkbox) {
+                    settings[profileName].push(checkbox.id);
+                });
+            });
+
+            localStorage.setItem('settings', JSON.stringify(settings));
+        }
+
+        // Fonction pour charger les paramètres depuis le localStorage
+        function loadSettings() {
+            let settings = JSON.parse(localStorage.getItem('settings'));
+            if (settings) {
+                Object.keys(settings).forEach(function(profileName) {
+                    settings[profileName].forEach(function(pageId) {
+                        let checkbox = document.getElementById(pageId);
+                        if (checkbox) {
+                            checkbox.checked = true;
+                        }
+                    });
+                });
+            }
+        }
+
+        // Ajouter un écouteur d'événement pour toutes les cases à cocher
+        document.querySelectorAll('.profile-checkbox input[type="checkbox"]').forEach(function(checkbox) {
+            checkbox.addEventListener('change', saveSettings);
+        });
+
+        // Charger les paramètres lors du chargement de la page
+        loadSettings();
+    </script>
+</body>
+</html>

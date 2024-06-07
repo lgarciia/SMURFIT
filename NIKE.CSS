@@ -1,0 +1,171 @@
+/* Styles pour le body et la police par défaut */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5; /* Couleur de fond */
+    color: #333; /* Couleur du texte */
+}
+
+/* Styles pour l'en-tête */
+header {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 15px;
+}
+
+/* Styles pour la barre de navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Styles pour le logo */
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Styles pour la liste de navigation */
+ul {
+    list-style: none;
+    display: flex;
+}
+
+/* Styles pour chaque élément de la liste */
+li {
+    margin: 0 15px;
+}
+
+/* Styles pour les liens (boutons) */
+a {
+    text-decoration: none;
+    color: #fff;
+    position: relative;
+}
+
+/* Styles communs pour les boutons */
+a.btn-top-right {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #f8f8f8;
+    color: #555;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* Styles au survol des boutons */
+a.btn-top-right:hover {background-color: #dddddd;color: #333;
+    box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+}
+
+/* Styles pour l'effet de contour au survol */
+a.btn-top-right::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% + 6px);
+    height: calc(100% + 6px);
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Styles spécifiques pour les boutons "Production", "RH", etc. */
+a.btn-top-right.production,
+a.btn-top-right.rh,
+a.btn-top-right.commerce,
+a.btn-top-right.cdg {
+    font-weight: normal;
+}
+
+/* Styles pour la section principale */
+.hero {
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+/* Styles pour le titre principal */
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+/* Styles pour le bouton */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f00;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Styles pour le pied de page */
+footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+/* Styles pour les listes déroulantes */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-trigger {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    background-color: #f8f8f849;
+    color: #555;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    bottom: 50; /* Ajuste la position par rapport au bouton du dessus */
+    left: 0;
+    width: 200px;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.dropdown-item {
+    padding: 100rem; /* Ajuste la taille du rembourrage des éléments de la liste déroulante */
+    color: #555;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dropdown-item:hover {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+/* Afficher la liste au survol */
+.dropdown:hover .dropdown-content {
+    display: block;
+}

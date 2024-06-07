@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="PROD.CSS">
+    <title>SMURFIT</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        header {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 10px 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+        }
+
+        li {
+            margin: 0 15px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            position: relative;
+        }
+
+        section.hero {
+            text-align: center;
+            padding: 5px;
+            margin-top: -30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        textarea {
+            width: 80%;
+            padding: 10px;
+            box-sizing: border-box;
+            resize: none;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .image-container {
+            max-width: 100%;
+            max-height: 650px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Nouveau style pour le bouton */
+        button.nouveau-bouton {
+            padding: 10px;
+            background-color: #0b7dda; /* Orange bah non */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Style au survol du bouton */
+        button.nouveau-bouton:hover {
+            background-color: #0b7ddae3; /* Nuance d'orange plus foncé au survol */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">SMURFIT - Commerce</div>
+
+
+        
+
+
+            <ul>
+                <!-- Nouveau bouton à gauche -->
+                <li><button class="nouveau-bouton" onclick="enregistrerTexte()">Enregistrer</button></li>
+                <li><a href="DETAILINDCOM.HTML">Détail des indicateurs</a></li>
+                <li><a href="TDB.html">Retour</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2> </h2>
+        <textarea id="texteAEnregistrer" placeholder="Écrivez ici..."></textarea>
+        <div class="image-container">
+            <!-- Insérez votre image ici -->
+            <img src="..\TDB SMURFIT\IMAGES\TDBCA.png" alt="Description de l'image">
+        </div>
+    </section>
+
+    <footer>
+       
+
+        <!-- Liste déroulante pour les options -->
+        <div class="options-dropdown">
+            <select onchange="handleOptionChange(this)">
+                <option value="none" selected disabled hidden>Options</option>
+                <option value="export">Exporter les données</option>
+                <option value="import">Importer des données</option>
+            </select>
+        </div>
+
+        <!-- Boutons d'export/import dans la liste déroulante -->
+        <div class="export-import" style="display: none;">
+            <button class="export-bouton" onclick="exporterDonneesCommerce()">Exporter les données Commerce</button>
+            <label for="importInputCommerce" class="import-label" onclick="document.getElementById('importInputCommerce').click()">Importer des données Commerce</label>
+            <input type="file" accept=".json" id="importInputCommerce" onchange="importerDonneesCommerce()" class="import-input">
+        </div>
+    </footer>
+
+    <script>
+        // Fonction pour enregistrer le texte localement
+        function enregistrerTexte() {
+            var texteAEnregistrer = document.getElementById('texteAEnregistrer').value;
+            localStorage.setItem('texteEnregistreCommerce', texteAEnregistrer);
+            alert('Texte enregistré avec succès !');
+        }
+
+        // Charger le texte lors du chargement de la page
+        window.onload = function () {
+            var texteEnregistre = localStorage.getItem('texteEnregistreCommerce');
+            if (texteEnregistre) {
+                document.getElementById('texteAEnregistrer').value = texteEnregistre;
+            }
+        };
+
+        // Fonction pour gérer le changement d'option
+        function handleOptionChange(select) {
+            var selectedOption = select.value;
+            var exportImportDiv = document.querySelector('.export-import');
+
+            if (selectedOption === 'export') {
+                exporterDonneesCommerce();
+                // Réinitialiser la liste déroulante après l'action
+                select.value = 'none';
+            } else if (selectedOption === 'import') {
+                // Cela déclenche l'événement click sur le bouton d'importation caché
+                document.getElementById('importInputCommerce').click();
+                // Réinitialiser la liste déroulante après l'importation
+                select.value = 'none';
+            } else {
+                exportImportDiv.style.display = 'none';
+            }
+        }
+
+        // Fonction pour exporter les données Commerce localement
+        function exporterDonneesCommerce() {
+            var donneesCommerce = {
+                texteAEnregistrerCommerce: document.getElementById('texteAEnregistrer').value
+            };
+
+            var jsonDataCommerce = JSON.stringify(donneesCommerce);
+
+            var blobCommerce = new Blob([jsonDataCommerce], { type: 'application/json' });
+            var aCommerce = document.createElement('a');
+            aCommerce.href = URL.createObjectURL(blobCommerce);
+            aCommerce.download = 'Donnees_Commerce.json';
+            aCommerce.click();
+        }
+
+        // Fonction pour importer les données Commerce localement
+        function importerDonneesCommerce() {
+            var inputCommerce = document.getElementById('importInputCommerce');
+            var fileCommerce = inputCommerce.files[0];
+
+            if (fileCommerce) {
+                var readerCommerce = new FileReader();
+                readerCommerce.onload = function (e) {
+                    var jsonDataCommerce = e.target.result;
+                    var donneesCommerce = JSON.parse(jsonDataCommerce);
+
+                    document.getElementById('texteAEnregistrer').value = donneesCommerce.texteAEnregistrerCommerce || '';
+
+                    alert('Données Commerce importées avec succès !');
+                };
+
+                readerCommerce.readAsText(fileCommerce);
+            }
+        }
+    </script>
+</body>
+</html>

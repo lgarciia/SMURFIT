@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="DETAILINDPRODUCTION.CSS">
+    <title>SMURFIT</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 10px 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        li {
+            margin: 0 15px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            position: relative;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Style au survol du lien */
+        a:hover {
+            background-color: #333;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50; /* Vert */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Style au survol du bouton */
+        button:hover {
+            background-color: #45a049; /* Nuance de vert plus foncé au survol */
+        }
+
+        section.hero {
+            display: flex;
+            align-items: flex-start;
+            padding: 20px;
+            margin-top: -10px;
+            overflow: hidden;
+        }
+
+        .image-container {
+            max-width: 50%;
+            overflow-y: auto;
+            overflow-x: hidden;
+            margin-right: 20px;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            resize: block;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: auto;
+        }
+    </style>
+</head>
+</style>
+</head>
+
+</style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">SMURFIT - Commerce - détails des indicateurs</div>
+
+
+
+
+            <ul>
+                <button onclick="enregistrerTexte()">Enregistrer</button>
+                <li><a href="COMMERCE.HTML">Retour</a></li>
+            </ul>
+        </nav>
+    </header>
+
+  <!-- Première paire image/texte -->
+<section class="hero">
+    <div class="image-container">
+        <img src="..\TDB SMURFIT\IMAGES\INDICOM1.png" alt="Description de l'image">
+        <div class="overlay" id="overlay1">
+            <img src="..\TDB SMURFIT\IMAGES\CIND9.png" alt="Description de l'image en grand">
+        </div>
+    </div>
+    <button class="show-image-button" onclick="toggleImage('overlay1')">+</button>
+    <textarea class="textArea" placeholder="Écrivez ici pour expliquer l'indicateur..."></textarea>
+
+    
+</section>
+
+<!-- Deuxième paire image/texte -->
+<section class="hero">
+    <div class="image-container">
+        <img src="..\TDB SMURFIT\IMAGES\INDICOM2.png" alt="Description de l'image">
+        <div class="overlay" id="overlay2">
+            <img src="" alt="Description de l'image en grand">
+        </div>
+    </div>
+    <button class="show-image-button" onclick="toggleImage('overlay2')">+</button>
+    <textarea class="textArea" placeholder="Écrivez ici pour expliquer l'indicateur..."></textarea>
+
+    
+</section>
+
+<!-- Troisième paire image/texte -->
+<section class="hero">
+    <div class="image-container">
+        <img src="..\TDB SMURFIT\IMAGES\INDICOM3.png" alt="Description de l'image">
+        <div class="overlay" id="overlay3">
+            <img src="..\TDB SMURFIT\IMAGES\CIND10.png" alt="Description de l'image en grand">
+        </div>
+    </div>
+    <button class="show-image-button" onclick="toggleImage('overlay3')">+</button>
+    <textarea class="textArea" placeholder="Écrivez ici pour expliquer l'indicateur..."></textarea>
+
+    
+</section>
+
+<!-- Quatrième paire image/texte -->
+<section class="hero">
+    <div class="image-container">
+        <img src="..\TDB SMURFIT\IMAGES\INDICOM4.png" alt="Description de l'image">
+        <div class="overlay" id="overlay4">
+            <img src="..\TDB SMURFIT\IMAGES\CIND11.png" alt="Description de l'image en grand">
+        </div>
+    </div>
+    <button class="show-image-button" onclick="toggleImage('overlay4')">+</button>
+    <textarea class="textArea" placeholder="Écrivez ici pour expliquer l'indicateur..."></textarea>
+
+    
+</section>
+
+
+<!-- 5 paire image/texte -->
+<section class="hero">
+    <div class="image-container">
+        <img src="..\TDB SMURFIT\IMAGES\INDICOM5.png" alt="Description de l'image">
+        <div class="overlay" id="overlay4">
+            <img src="" alt="Description de l'image en grand">
+        </div>
+    </div>
+    <button class="show-image-button" onclick="toggleImage('overlay4')">+</button>
+    <textarea class="textArea" placeholder="Écrivez ici pour expliquer l'indicateur..."></textarea>
+
+    
+</section>
+
+    <footer>
+       
+
+        <!-- Liste déroulante pour les options -->
+        <div class="options-dropdown">
+            <select onchange="handleOptionChange(this)">
+                <option value="none" selected disabled hidden>Options</option>
+                <option value="export">Exporter les données</option>
+                <option value="import">Importer des données</option>
+            </select>
+        </div>
+
+        <!-- Boutons d'export/import dans la liste déroulante -->
+        <div class="export-import" style="display: none;">
+            <button class="export-bouton" onclick="exporterDonneesCommerce()">Exporter les données Commerce</button>
+            <label for="importInputCommerce" class="import-label" onclick="document.getElementById('importInputCommerce').click()">Importer des données Commerce</label>
+            <input type="file" accept=".json" id="importInputCommerce" onchange="importerDonneesCommerce()" class="import-input">
+        </div>
+    </footer>
+
+    <script>
+
+function toggleImage(overlayId) {
+        var overlay = document.getElementById(overlayId);
+        overlay.style.display = (overlay.style.display === 'none' || overlay.style.display === '') ? 'flex' : 'none';
+    }
+
+
+
+
+        // Fonction pour enregistrer le texte localement
+        function enregistrerTexte() {
+            var textAreas = document.querySelectorAll('.textArea');
+            var currentPageURL = window.location.href; // Obtient l'URL de la page actuelle
+            textAreas.forEach(function (textArea, index) {
+                localStorage.setItem(currentPageURL + '_texteSaisi' + (index + 1), textArea.value);
+            });
+            alert('Textes enregistrés avec succès !');
+        }
+
+        // Fonction pour charger le texte lors du chargement de la page
+        window.onload = function () {
+            var textAreas = document.querySelectorAll('.textArea');
+            var currentPageURL = window.location.href; // Obtient l'URL de la page actuelle
+            textAreas.forEach(function (textArea, index) {
+                var texteEnregistre = localStorage.getItem(currentPageURL + '_texteSaisi' + (index + 1));
+                if (texteEnregistre) {
+                    textArea.value = texteEnregistre;
+                }
+            });
+        };
+
+        // Fonction pour gérer le changement d'option
+        function handleOptionChange(select) {
+            var selectedOption = select.value;
+            var exportImportDiv = document.querySelector('.export-import');
+
+            if (selectedOption === 'export') {
+                exporterDonneesCommerce();
+                // Réinitialiser la liste déroulante après l'action
+                select.value = 'none';
+            } else if (selectedOption === 'import') {
+                // Cela déclenche l'événement click sur le bouton d'importation caché
+                document.getElementById('importInputCommerce').click();
+                // Réinitialiser la liste déroulante après l'importation
+                select.value = 'none';
+            } else {
+                exportImportDiv.style.display = 'none';
+            }
+        }
+
+        // Fonction pour exporter les données Commerce localement
+        function exporterDonneesCommerce() {
+            var donneesCommerce = {
+                texteAEnregistrerCommerce1: document.querySelectorAll('.textArea')[0].value,
+                texteAEnregistrerCommerce2: document.querySelectorAll('.textArea')[1].value,
+                texteAEnregistrerCommerce3: document.querySelectorAll('.textArea')[2].value,
+                texteAEnregistrerCommerce4: document.querySelectorAll('.textArea')[3].value
+            };
+
+            var jsonDataCommerce = JSON.stringify(donneesCommerce);
+
+            var blobCommerce = new Blob([jsonDataCommerce], { type: 'application/json' });
+            var aCommerce = document.createElement('a');
+            aCommerce.href = URL.createObjectURL(blobCommerce);
+            aCommerce.download = 'Donnees_Commerce.json';
+            aCommerce.click();
+        }
+
+        // Fonction pour importer les données Commerce localement
+        function importerDonneesCommerce() {
+            var inputCommerce = document.getElementById('importInputCommerce');
+            var fileCommerce = inputCommerce.files[0];
+
+            if (fileCommerce) {
+                var readerCommerce = new FileReader();
+                readerCommerce.onload = function (e) {
+                    var jsonDataCommerce = e.target.result;
+                    var donneesCommerce = JSON.parse(jsonDataCommerce);
+
+                    document.querySelectorAll('.textArea').forEach(function (textArea, index) {
+                        textArea.value = donneesCommerce['texteAEnregistrerCommerce' + (index + 1)] || '';
+                    });
+
+                    alert('Données Commerce importées avec succès !');
+                };
+
+                readerCommerce.readAsText(fileCommerce);
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="PROD.CSS">
+    <title>SMURFIT</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        header {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 10px 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+        }
+
+        li {
+            margin: 0 15px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            position: relative;
+        }
+
+        section.hero {
+            text-align: center;
+            padding: 5px;
+            margin-top: -30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        textarea {
+            width: 80%;
+            padding: 10px;
+            box-sizing: border-box;
+            resize: none;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .image-container {
+            max-width: 100%;
+            max-height: 650px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Nouveau style pour le bouton */
+        button.nouveau-bouton {
+            padding: 10px;
+            background-color: #2196F3; /* Bleu */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Style au survol du bouton */
+        button.nouveau-bouton:hover {
+            background-color: #0b7dda; /* Nuance de bleu plus foncé au survol */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">SMURFIT - Ressources Humaines</div>
+
+          
+            <ul>
+                <!-- Nouveau bouton à gauche -->
+                <li><button class="nouveau-bouton" onclick="enregistrerTexte()">Enregistrer</button></li>
+                <li><a href="DETAILINDRH.HTML">Détail des indicateurs</a></li>
+                <li><a href="TDB.html">Retour</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2> </h2>
+        <textarea id="texteAEnregistrerRH" placeholder="Écrivez ici..."></textarea>
+        <div class="image-container">
+            <!-- Insérez votre image ici -->
+            <img src="..\TDB SMURFIT\IMAGES\TDBRH.png" alt="Description de l'image">
+        </div>
+    </section>
+
+    <footer>
+       
+
+        <!-- Liste déroulante pour les options -->
+        <div class="options-dropdown">
+            <select onchange="handleOptionChange(this)">
+                <option value="none" selected disabled hidden>Options</option>
+                <option value="export">Exporter les données</option>
+                <option value="import">Importer des données</option>
+            </select>
+        </div>
+
+        <!-- Boutons d'export/import dans la liste déroulante -->
+        <div class="export-import" style="display: none;">
+            <button class="export-bouton" onclick="exporterDonneesRH()">Exporter les données RH</button>
+            <label for="importInputRH" class="import-label" onclick="document.getElementById('importInputRH').click()">Importer des données RH</label>
+            <input type="file" accept=".json" id="importInputRH" onchange="importerDonneesRH()" class="import-input">
+        </div>
+    </footer>
+
+    <script>
+        // Fonction pour enregistrer le texte localement
+        function enregistrerTexte() {
+            var texteAEnregistrer = document.getElementById('texteAEnregistrerRH').value;
+            localStorage.setItem('texteEnregistreRH', texteAEnregistrer);
+            alert('Texte enregistré avec succès !');
+        }
+
+        // Charger le texte lors du chargement de la page
+        window.onload = function () {
+            var texteEnregistre = localStorage.getItem('texteEnregistreRH');
+            if (texteEnregistre) {
+                document.getElementById('texteAEnregistrerRH').value = texteEnregistre;
+            }
+        };
+
+        // Fonction pour gérer le changement d'option
+        function handleOptionChange(select) {
+            var selectedOption = select.value;
+            var exportImportDiv = document.querySelector('.export-import');
+
+            if (selectedOption === 'export') {
+                exporterDonneesRH();
+                // Réinitialiser la liste déroulante après l'action
+                select.value = 'none';
+            } else if (selectedOption === 'import') {
+                // Cela déclenche l'événement click sur le bouton d'importation caché
+                document.getElementById('importInputRH').click();
+                // Réinitialiser la liste déroulante après l'importation
+                select.value = 'none';
+            } else {
+                exportImportDiv.style.display = 'none';
+            }
+        }
+
+        // Fonction pour exporter les données RH localement
+        function exporterDonneesRH() {
+            var donneesRH = {
+                texteAEnregistrerRH: document.getElementById('texteAEnregistrerRH').value
+            };
+
+            var jsonDataRH = JSON.stringify(donneesRH);
+
+            var blobRH = new Blob([jsonDataRH], { type: 'application/json' });
+            var aRH = document.createElement('a');
+            aRH.href = URL.createObjectURL(blobRH);
+            aRH.download = 'Donnees_RH.json';
+            aRH.click();
+        }
+
+        // Fonction pour importer les données RH localement
+        function importerDonneesRH() {
+            var inputRH = document.getElementById('importInputRH');
+            var fileRH = inputRH.files[0];
+
+            if (fileRH) {
+                var readerRH = new FileReader();
+                readerRH.onload = function (e) {
+                    var jsonDataRH = e.target.result;
+                    var donneesRH = JSON.parse(jsonDataRH);
+
+                    document.getElementById('texteAEnregistrerRH').value = donneesRH.texteAEnregistrerRH || '';
+
+                    alert('Données RH importées avec succès !');
+                };
+
+                readerRH.readAsText(fileRH);
+            }
+        }
+    </script>
+</body>
+</html>
