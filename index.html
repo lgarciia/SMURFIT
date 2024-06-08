@@ -1,10 +1,215 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta http-equiv="refresh" content="0; url=PINSCRIPTION.HTML">
-    <title>Redirecting...</title>
-</head>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Connexion - Smurfit</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f5f5f5;
+                margin: 0;
+                padding: 0;
+            }
+            .navbar {
+            background-color: #004f99; /* Bleu foncé distinct */
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .navbar h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: bold;
+            }
+            .container {
+                background-color: #fff;
+                border-radius: 8px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+                padding: 30px;
+                width: 400px;
+                text-align: center;
+                margin: 50px auto;
+            }
+            .toggle-buttons {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 20px;
+            }
+            .toggle-buttons button {
+                flex: 1;
+                padding: 10px;
+                margin: 0 5px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+            .toggle-buttons .signup-btn {
+                background-color: #004f99; /* Bleu foncé distinct */
+                color: #fff;
+            }
+            .toggle-buttons .signup-btn:hover {
+                background-color: #003366; /* Bleu foncé plus foncé */
+            }
+            .toggle-buttons .login-btn {
+                background-color: #00733e; /* Vert foncé */
+                color: #fff;
+            }
+            .toggle-buttons .login-btn:hover {
+                background-color: #00582b; /* Vert foncé plus foncé */
+            }
+            h2 {
+                margin-bottom: 20px;
+                font-size: 24px;
+            }
+            label {
+                display: block;
+                margin-bottom: 5px;
+                text-align: left;
+                font-size: 16px;
+            }
+            input[type="text"],
+            input[type="password"] {
+                width: calc(100% - 22px);
+                padding: 10px;
+                margin-bottom: 20px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                font-size: 16px;
+                box-sizing: border-box;
+            }
+            input[type="submit"] {
+                width: 100%;
+                padding: 12px;
+                background-color: #004f99; /* Bleu foncé distinct */
+                border: none;
+                border-radius: 5px;
+                color: #fff;
+                font-size: 18px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+            input[type="submit"]:hover {
+                background-color: #003366; /* Bleu foncé plus foncé */
+            }
+            .message {
+                margin-top: 10px;
+                color: green;
+                font-size: 16px;
+            }
+            #userList {
+                display: none;
+                margin-top: 20px;
+                border-top: 1px solid #ccc;
+                padding-top: 20px;
+            }
+            #userList h3 {
+                margin-bottom: 10px;
+                font-size: 20px;
+            }
+            #userList ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                text-align: left;
+            }
+            #userList li {
+                margin-bottom: 5px;
+                font-size: 16px;
+            }
+            #showUsersBtn {
+                background-color: #00733e; /* Vert foncé */
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                padding: 10px 20px;
+                font-size: 16px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+            #showUsersBtn:hover {
+                background-color: #00582b; /* Vert foncé plus foncé */
+            }
+        </style>
+    </head>
 <body>
-    <p>If you are not redirected automatically, follow this <a href="PINSCRIPTION.HTML">link</a>.</p>
+    <div class="navbar">
+        <h1>Connexion - Smurfit</h1>
+    </div>
+    <div class="container">
+        <div class="toggle-buttons">
+            <button class="signup-btn" onclick="showSignup()">S'inscrire</button>
+            <button class="login-btn" onclick="showLogin()">Se connecter</button>
+        </div>
+        <h2 id="form-title">Inscription</h2>
+        <form id="userForm">
+            <label for="username">Identifiant</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" name="password" required>
+            
+            <input type="submit" id="submit-btn" value="S'inscrire">
+        </form>
+        <div class="message" id="message"></div>
+    </div>
+    
+    <script>
+        let isSignup = true;
+
+        document.getElementById('userForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            let username = document.getElementById('username').value;
+            let password = document.getElementById('password').value;
+            
+            if (username && password) {
+                let users = JSON.parse(localStorage.getItem('users')) || {};
+                
+                if (isSignup) {
+                    if (users[username]) {
+                        document.getElementById('message').textContent = 'L\'identifiant existe déjà.';
+                        document.getElementById('message').style.color = 'red';
+                    } else {
+                        users[username] = password;
+                        localStorage.setItem('users', JSON.stringify(users));
+                        document.getElementById('message').textContent = 'Inscription réussie !';
+                        document.getElementById('message').style.color = 'green';
+                        document.getElementById('userForm').reset();
+                    }
+                } else {
+                    if (users[username] && users[username] === password) {
+                        document.getElementById('message').textContent = 'Connexion réussie !';
+                        document.getElementById('message').style.color = 'green';
+                        localStorage.setItem('loggedInUser', username);
+                        window.location.href = 'tdb.html'; // Redirection vers la page locale
+                    } else {
+                        document.getElementById('message').textContent = 'Identifiant ou mot de passe incorrect.';
+                        document.getElementById('message').style.color = 'red';
+                    }
+                }
+            } else {
+                document.getElementById('message').textContent = 'Veuillez remplir tous les champs.';
+                document.getElementById('message').style.color = 'red';
+            }
+        });
+
+        function showSignup() {
+            isSignup = true;
+            document.getElementById('form-title').textContent = 'Inscription';
+            document.getElementById('submit-btn').value = 'S\'inscrire';
+            document.getElementById('message').textContent = '';
+            document.getElementById('userForm').reset();
+        }
+
+        function showLogin() {
+            isSignup = false;
+            document.getElementById('form-title').textContent = 'Connexion';
+            document.getElementById('submit-btn').value = 'Se connecter';
+            document.getElementById('message').textContent = '';
+            document.getElementById('userForm').reset();
+        }
+    </script>
 </body>
 </html>
