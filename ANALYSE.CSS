@@ -1,0 +1,72 @@
+/* Styles pour le body et la police par défaut */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5; /* Couleur de fond */
+    color: #333; /* Couleur du texte */
+}
+
+/* Styles pour l'en-tête */
+header {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+}
+
+/* Styles pour la section principale */
+#indicateurs {
+    padding: 20px;
+}
+
+/* Styles pour chaque indicateur */
+.indicateur {
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles pour les titres des indicateurs */
+.indicateur h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Styles pour les graphiques */
+.graphique {
+    /* Ajoutez vos styles pour les graphiques ici */
+}
+
+/* Styles pour les commentaires */
+.commentaire textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: vertical;
+}
+
+/* Styles pour l'analyse */
+#analyse textarea {
+    width: calc(100% - 20px);
+    height: 150px;
+    padding: 10px;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: vertical;
+}
+
+/* Styles pour le pied de page */
+footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
